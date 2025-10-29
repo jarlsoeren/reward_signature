@@ -1,0 +1,11 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "reward_signature"]
+	url = https://github.com/jarlsoeren/reward_signature.git
+	fetch = +refs/heads/*:refs/remotes/reward_signature/*
+[remote "origin"]
+	url = git@github.com:jarlsoeren/reward_signature.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
