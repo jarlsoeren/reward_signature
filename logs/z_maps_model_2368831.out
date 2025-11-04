@@ -1,0 +1,124 @@
+/mnt/projects/rewardMap/STUDIES/reward_signature/.venv/lib64/python3.9/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+/mnt/projects/rewardMap/STUDIES/reward_signature/.venv/lib64/python3.9/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+Train model on ['hcp', 'mid', 'risksensitive', 'twostep']
+Test model on ['gonogo']
+number of subs: 15
+Baseline accuracies of train: [-1.  0.  1.] - [0.08 0.39 0.53]
+Baseline accuracies of test: [-1.  0.  1.] - [0.18 0.49 0.32]
+{'memory': None, 'steps': [('pca', PCA(n_components=25)), ('model', LogisticRegression(max_iter=10000, penalty='l1', random_state=0, solver='saga'))], 'transform_input': None, 'verbose': False, 'pca': PCA(n_components=25), 'model': LogisticRegression(max_iter=10000, penalty='l1', random_state=0, solver='saga'), 'pca__copy': True, 'pca__iterated_power': 'auto', 'pca__n_components': 25, 'pca__n_oversamples': 10, 'pca__power_iteration_normalizer': 'auto', 'pca__random_state': None, 'pca__svd_solver': 'auto', 'pca__tol': 0.0, 'pca__whiten': False, 'model__C': 1.0, 'model__class_weight': None, 'model__dual': False, 'model__fit_intercept': True, 'model__intercept_scaling': 1, 'model__l1_ratio': None, 'model__max_iter': 10000, 'model__multi_class': 'deprecated', 'model__n_jobs': None, 'model__penalty': 'l1', 'model__random_state': 0, 'model__solver': 'saga', 'model__tol': 0.0001, 'model__verbose': 0, 'model__warm_start': False}
+Fold 1/5 - Training Accuracy: 0.4934
+Fold 1/5 - Validation Accuracy: 0.4462
+Fold 2/5 - Training Accuracy: 0.4906
+Fold 2/5 - Validation Accuracy: 0.4938
+Fold 3/5 - Training Accuracy: 0.4916
+Fold 3/5 - Validation Accuracy: 0.4853
+Fold 4/5 - Training Accuracy: 0.4874
+Fold 4/5 - Validation Accuracy: 0.4954
+Fold 5/5 - Training Accuracy: 0.4873
+Fold 5/5 - Validation Accuracy: 0.5001
+
+Mean training accuracy: 0.4901
+
+Mean validation accuracy: 0.4842
+Test Accuracy: 0.3868
+
+
+
+Train model on ['gonogo', 'mid', 'risksensitive', 'twostep']
+Test model on ['hcp']
+number of subs: 15
+Baseline accuracies of train: [-1.  0.  1.] - [0.08 0.44 0.48]
+Baseline accuracies of test: [-1.  0.  1.] - [0.44 0.12 0.44]
+{'memory': None, 'steps': [('pca', PCA(n_components=25)), ('model', LogisticRegression(max_iter=10000, penalty='l1', random_state=0, solver='saga'))], 'transform_input': None, 'verbose': False, 'pca': PCA(n_components=25), 'model': LogisticRegression(max_iter=10000, penalty='l1', random_state=0, solver='saga'), 'pca__copy': True, 'pca__iterated_power': 'auto', 'pca__n_components': 25, 'pca__n_oversamples': 10, 'pca__power_iteration_normalizer': 'auto', 'pca__random_state': None, 'pca__svd_solver': 'auto', 'pca__tol': 0.0, 'pca__whiten': False, 'model__C': 1.0, 'model__class_weight': None, 'model__dual': False, 'model__fit_intercept': True, 'model__intercept_scaling': 1, 'model__l1_ratio': None, 'model__max_iter': 10000, 'model__multi_class': 'deprecated', 'model__n_jobs': None, 'model__penalty': 'l1', 'model__random_state': 0, 'model__solver': 'saga', 'model__tol': 0.0001, 'model__verbose': 0, 'model__warm_start': False}
+Fold 1/5 - Training Accuracy: 0.4420
+Fold 1/5 - Validation Accuracy: 0.4276
+Fold 2/5 - Training Accuracy: 0.4356
+Fold 2/5 - Validation Accuracy: 0.4199
+Fold 3/5 - Training Accuracy: 0.4332
+Fold 3/5 - Validation Accuracy: 0.4348
+Fold 4/5 - Training Accuracy: 0.4360
+Fold 4/5 - Validation Accuracy: 0.4395
+Fold 5/5 - Training Accuracy: 0.4394
+Fold 5/5 - Validation Accuracy: 0.4396
+
+Mean training accuracy: 0.4372
+
+Mean validation accuracy: 0.4323
+Test Accuracy: 0.3548
+
+
+
+Train model on ['gonogo', 'hcp', 'risksensitive', 'twostep']
+Test model on ['mid']
+number of subs: 15
+Baseline accuracies of train: [-1.  0.  1.] - [0.1  0.39 0.51]
+Baseline accuracies of test: [-1.  0.  1.] - [0.16 0.59 0.25]
+{'memory': None, 'steps': [('pca', PCA(n_components=25)), ('model', LogisticRegression(max_iter=10000, penalty='l1', random_state=0, solver='saga'))], 'transform_input': None, 'verbose': False, 'pca': PCA(n_components=25), 'model': LogisticRegression(max_iter=10000, penalty='l1', random_state=0, solver='saga'), 'pca__copy': True, 'pca__iterated_power': 'auto', 'pca__n_components': 25, 'pca__n_oversamples': 10, 'pca__power_iteration_normalizer': 'auto', 'pca__random_state': None, 'pca__svd_solver': 'auto', 'pca__tol': 0.0, 'pca__whiten': False, 'model__C': 1.0, 'model__class_weight': None, 'model__dual': False, 'model__fit_intercept': True, 'model__intercept_scaling': 1, 'model__l1_ratio': None, 'model__max_iter': 10000, 'model__multi_class': 'deprecated', 'model__n_jobs': None, 'model__penalty': 'l1', 'model__random_state': 0, 'model__solver': 'saga', 'model__tol': 0.0001, 'model__verbose': 0, 'model__warm_start': False}
+Fold 1/5 - Training Accuracy: 0.5021
+Fold 1/5 - Validation Accuracy: 0.4627
+Fold 2/5 - Training Accuracy: 0.4906
+Fold 2/5 - Validation Accuracy: 0.4694
+Fold 3/5 - Training Accuracy: 0.4885
+Fold 3/5 - Validation Accuracy: 0.5216
+Fold 4/5 - Training Accuracy: 0.4976
+Fold 4/5 - Validation Accuracy: 0.4752
+Fold 5/5 - Training Accuracy: 0.4899
+Fold 5/5 - Validation Accuracy: 0.4897
+
+Mean training accuracy: 0.4937
+
+Mean validation accuracy: 0.4837
+Test Accuracy: 0.4106
+
+
+
+Train model on ['gonogo', 'hcp', 'mid', 'twostep']
+Test model on ['risksensitive']
+number of subs: 15
+Baseline accuracies of train: [-1.  0.  1.] - [0.15 0.45 0.4 ]
+Baseline accuracies of test: [0. 1.] - [0.29 0.71]
+{'memory': None, 'steps': [('pca', PCA(n_components=25)), ('model', LogisticRegression(max_iter=10000, penalty='l1', random_state=0, solver='saga'))], 'transform_input': None, 'verbose': False, 'pca': PCA(n_components=25), 'model': LogisticRegression(max_iter=10000, penalty='l1', random_state=0, solver='saga'), 'pca__copy': True, 'pca__iterated_power': 'auto', 'pca__n_components': 25, 'pca__n_oversamples': 10, 'pca__power_iteration_normalizer': 'auto', 'pca__random_state': None, 'pca__svd_solver': 'auto', 'pca__tol': 0.0, 'pca__whiten': False, 'model__C': 1.0, 'model__class_weight': None, 'model__dual': False, 'model__fit_intercept': True, 'model__intercept_scaling': 1, 'model__l1_ratio': None, 'model__max_iter': 10000, 'model__multi_class': 'deprecated', 'model__n_jobs': None, 'model__penalty': 'l1', 'model__random_state': 0, 'model__solver': 'saga', 'model__tol': 0.0001, 'model__verbose': 0, 'model__warm_start': False}
+Fold 1/5 - Training Accuracy: 0.4769
+Fold 1/5 - Validation Accuracy: 0.4440
+Fold 2/5 - Training Accuracy: 0.4717
+Fold 2/5 - Validation Accuracy: 0.4679
+Fold 3/5 - Training Accuracy: 0.4707
+Fold 3/5 - Validation Accuracy: 0.4723
+Fold 4/5 - Training Accuracy: 0.4740
+Fold 4/5 - Validation Accuracy: 0.4618
+Fold 5/5 - Training Accuracy: 0.4731
+Fold 5/5 - Validation Accuracy: 0.4481
+
+Mean training accuracy: 0.4733
+
+Mean validation accuracy: 0.4588
+Test Accuracy: 0.5864
+
+
+
+Train model on ['gonogo', 'hcp', 'mid', 'risksensitive']
+Test model on ['twostep']
+number of subs: 15
+Baseline accuracies of train: [-1.  0.  1.] - [0.15 0.4  0.45]
+Baseline accuracies of test: [0. 1.] - [0.46 0.54]
+{'memory': None, 'steps': [('pca', PCA(n_components=25)), ('model', LogisticRegression(max_iter=10000, penalty='l1', random_state=0, solver='saga'))], 'transform_input': None, 'verbose': False, 'pca': PCA(n_components=25), 'model': LogisticRegression(max_iter=10000, penalty='l1', random_state=0, solver='saga'), 'pca__copy': True, 'pca__iterated_power': 'auto', 'pca__n_components': 25, 'pca__n_oversamples': 10, 'pca__power_iteration_normalizer': 'auto', 'pca__random_state': None, 'pca__svd_solver': 'auto', 'pca__tol': 0.0, 'pca__whiten': False, 'model__C': 1.0, 'model__class_weight': None, 'model__dual': False, 'model__fit_intercept': True, 'model__intercept_scaling': 1, 'model__l1_ratio': None, 'model__max_iter': 10000, 'model__multi_class': 'deprecated', 'model__n_jobs': None, 'model__penalty': 'l1', 'model__random_state': 0, 'model__solver': 'saga', 'model__tol': 0.0001, 'model__verbose': 0, 'model__warm_start': False}
+Fold 1/5 - Training Accuracy: 0.5044
+Fold 1/5 - Validation Accuracy: 0.4802
+Fold 2/5 - Training Accuracy: 0.5040
+Fold 2/5 - Validation Accuracy: 0.4843
+Fold 3/5 - Training Accuracy: 0.5059
+Fold 3/5 - Validation Accuracy: 0.5054
+Fold 4/5 - Training Accuracy: 0.5036
+Fold 4/5 - Validation Accuracy: 0.4924
+Fold 5/5 - Training Accuracy: 0.5061
+Fold 5/5 - Validation Accuracy: 0.5045
+
+Mean training accuracy: 0.5048
+
+Mean validation accuracy: 0.4933
+Test Accuracy: 0.5348
+
+
+

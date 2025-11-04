@@ -43,7 +43,7 @@ def run_model(train_tasks, test_tasks, n_subs, maps_dir):
             img_files = []
             rewards_file = None
 
-            for roor, dirs, files in os.walk(sub_dir_p):
+            for root, dirs, files in os.walk(sub_dir_p):
                 for file in files:
                     if file.endswith(".nii.gz"):
                         img_files.append(file)
@@ -69,13 +69,12 @@ def run_model(train_tasks, test_tasks, n_subs, maps_dir):
     Y_test_list = []
 
     tasks = list(data_dict.keys())
-    test_task_idx = len(train_tasks) - 1  # leave last task out
 
     for i, task in enumerate(tasks):
         if task in train_tasks:
             d = data_dict[task]
 
-            for sub in list(d.keys())[:1]:
+            for sub in list(d.keys()):
                 betas = d[sub]["betas"]
                 rewards = d[sub]["rewards"]
 
@@ -84,7 +83,7 @@ def run_model(train_tasks, test_tasks, n_subs, maps_dir):
         elif task in test_tasks:
             d = data_dict[task]
             
-            for sub in list(d.keys())[:1]:
+            for sub in list(d.keys()):
                 betas = d[sub]["betas"]
                 rewards = d[sub]["rewards"]
 
@@ -105,76 +104,90 @@ def run_model(train_tasks, test_tasks, n_subs, maps_dir):
     classes, count = np.unique_counts(Y_test)
     print(f"Baseline accuracies of test: {classes} - {np.round(count/np.sum(count), 2)}")
     
-    params = {
-        "model__max_depth": [5, 10]
-    }
+    # params = {
+    #     "model__max_depth": [5, 10]
+    # }
 
     pipe = Pipeline([
         ("scaler", StandardScaler()),
         ("pca", PCA(n_components=25)),
-        #("model", LogisticRegression(solver='saga', penalty="l1", max_iter=10000, random_state=0))
-        ("model", RandomForestClassifier(n_estimators=100, max_depth=10, random_state=42))
+        ("model", LogisticRegression(solver='saga', penalty="l1", max_iter=10000, random_state=0))
+        #("model", RandomForestClassifier(n_estimators=100, max_depth=10, random_state=42))
     ])
 
     print(pipe.get_params())
 
-    grid_search = GridSearchCV(
-        pipe,
-        param_grid=params,
-        cv=4,
-        scoring='balanced_accuracy',
-        n_jobs=-1,
-        return_train_score=True
-    )
+    # grid_search = GridSearchCV(
+    #     pipe,
+    #     param_grid=params,
+    #     cv=4,
+    #     scoring='balanced_accuracy',
+    #     n_jobs=-1,
+    #     return_train_score=True
+    # )
 
-    grid_search.fit(X, Y)
+    # grid_search.fit(X, Y)
 
-    # Extract and display training + validation scores for all runs
-    results = grid_search.cv_results_
-    for mean_train, mean_val, params in zip(results['mean_train_score'],
-                                            results['mean_test_score'],
-                                            results['params']):
-        print(f"{params} -> Train Acc: {mean_train:.4f}, Val Acc: {mean_val:.4f}")
+    # # Extract and display training + validation scores for all runs
+    # results = grid_search.cv_results_
+    # for mean_train, mean_val, params in zip(results['mean_train_score'],
+    #                                         results['mean_test_score'],
+    #                                         results['params']):
+    #     print(f"{params} -> Train Acc: {mean_train:.4f}, Val Acc: {mean_val:.4f}")
 
-    best_model = grid_search.best_estimator_
-    y_pred = best_model.predict(X_test)
-    test_score = balanced_accuracy_score(Y_test, y_pred)
-    print("\nTest Accuracy:", test_score)
-
-
-    # # K-Fold cross-validation
-    # splits = 4
-    # kf = KFold(n_splits=splits, shuffle=True, random_state=42)
-
-    # train_scores = []
-    # val_scores = []
-
-    # for i, (train_index, test_index) in enumerate(kf.split(X)):
-    #     X_tr = X[train_index]
-    #     X_val = X[test_index]
-    #     y_tr = Y[train_index]
-    #     y_val = Y[test_index]
-
-    #     pipe.fit(X_tr, y_tr)
-
-
-    #     y_pred = pipe.predict(X_tr)
-    #     train_score = balanced_accuracy_score(y_tr, y_pred)
-    #     train_scores.append(train_score)
-
-    #     y_pred = pipe.predict(X_val)
-    #     val_score = balanced_accuracy_score(y_val, y_pred)
-    #     val_scores.append(val_score)
-        
-    #     print(f"Fold {i+1}/{splits} - Training Accuracy: {train_score:.4f}")
-    #     print(f"Fold {i+1}/{splits} - Validation Accuracy: {val_score:.4f}")
-
-    # print(f"\nMean training accuracy: {np.mean(train_scores):.4f}")
-    # print(f"\nMean validation accuracy: {np.mean(val_scores):.4f}")
-
-    # y_pred = pipe.predict(X_test)
+    # best_model = grid_search.best_estimator_
+    # y_pred = best_model.predict(X_test)
     # test_score = balanced_accuracy_score(Y_test, y_pred)
+    # print("\nTest Accuracy:", test_score)
+
+
+    # K-Fold cross-validation
+    splits = 5
+    kf = KFold(n_splits=splits, shuffle=True, random_state=42)
+
+    train_scores = []
+    val_scores = []
+
+    for i, (train_index, test_index) in enumerate(kf.split(X)):
+        X_tr = X[train_index]
+        X_val = X[test_index]
+        y_tr = Y[train_index]
+        y_val = Y[test_index]
+
+        pipe.fit(X_tr, y_tr)
+
+
+        y_pred = pipe.predict(X_tr)
+        train_score = balanced_accuracy_score(y_tr, y_pred)
+        train_scores.append(train_score)
+
+        y_pred = pipe.predict(X_val)
+        val_score = balanced_accuracy_score(y_val, y_pred)
+        val_scores.append(val_score)
         
-    # print(f"Test Accuracy: {test_score:.4f}")
+        print(f"Fold {i+1}/{splits} - Training Accuracy: {train_score:.4f}")
+        print(f"Fold {i+1}/{splits} - Validation Accuracy: {val_score:.4f}")
+
+    print(f"\nMean training accuracy: {np.mean(train_scores):.4f}")
+    print(f"\nMean validation accuracy: {np.mean(val_scores):.4f}")
+
+    y_pred = pipe.predict(X_test)
+    test_score = balanced_accuracy_score(Y_test, y_pred)
+        
+    print(f"Test Accuracy: {test_score:.4f}")
 
 
+if __name__ == "__main__":
+    tasks = ['gonogo', 'hcp', 'mid', 'risksensitive', 'twostep']
+    n_subs = [15]
+    maps_dirs = ['/mnt/projects/rewardMap/STUDIES/pilotstudy/derivatives/lss_maps/', '/mnt/projects/rewardMap/STUDIES/pilotstudy/derivatives/lss_t_maps/', '/mnt/projects/rewardMap/STUDIES/pilotstudy/derivatives/lss_z_maps/']
+    maps_dir = maps_dirs[0]
+
+    for i in range(len(tasks)):
+        train_tasks = tasks[:i] + tasks[i+1:]
+        test_tasks = [tasks[i]]
+
+        for n in n_subs:
+            print(f"Train model on {train_tasks}\nTest model on {test_tasks}\nnumber of subs: {n}")
+            run_model(train_tasks, test_tasks, n, maps_dir)
+            print("\n\n")

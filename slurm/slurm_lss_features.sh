@@ -7,13 +7,13 @@
 #SBATCH --mem=30G
 
 
-PYTHON_BIN=/mnt/scratch/projects/rewardMap/reward_signature/venv/bin/python
+PYTHON_BIN=/mnt/projects/rewardMap/STUDIES/reward_signature/.venv/bin/python
 ANACONDA_DIR=/mnt/projects/rewardMap/STUDIES/preregistration/.venv/
 
 #DISPLAY=
 #. $ANACONDA_DIR/etc/profile.d/conda.sh
 
-COMPUTE_FOLDER='/mnt/scratch/projects/rewardMap/reward_signature/'
+COMPUTE_FOLDER='/mnt/projects/rewardMap/STUDIES/reward_signature/scripts'
 
 # activate the env your interested in
 

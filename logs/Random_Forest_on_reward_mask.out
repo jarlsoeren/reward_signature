@@ -1,0 +1,63 @@
+[wrapper] Dataset found in /home/jarlss/nilearn_data/pauli_2017
+Data shapes
+Train: (4447, 2826)
+Validation: (344, 2826)
+Test: (342, 2826)
+
+
+Baseline accuracies of train: [-1.  0.  1.] - [0.22 0.45 0.33]
+Baseline accuracies of train: [-1.  0.  1.] - [0.23 0.47 0.31]
+Baseline accuracies of test: [-1.  0.  1.] - [0.21 0.5  0.29]
+
+Running random forest for max_depth: 5 and n_estimators: 100
+Train accuracy: 0.4482958540231257
+Val accuracy: 0.38273809523809527
+
+
+Running random forest for max_depth: 5 and n_estimators: 200
+Train accuracy: 0.45110507877655226
+Val accuracy: 0.391170634920635
+
+
+Running random forest for max_depth: 15 and n_estimators: 100
+Train accuracy: 0.9723353235629473
+Val accuracy: 0.39128867791842475
+
+
+Running random forest for max_depth: 15 and n_estimators: 200
+Train accuracy: 0.9761837318294299
+Val accuracy: 0.39019112919429383
+
+
+Running random forest for max_depth: 10 and n_estimators: 100
+Train accuracy: 0.865805518945273
+Val accuracy: 0.39013838657825994
+
+
+Running random forest for max_depth: 10 and n_estimators: 200
+Train accuracy: 0.8712417707664565
+Val accuracy: 0.39966847498493063
+
+
+Running random forest for max_depth: 20 and n_estimators: 100
+Train accuracy: 0.9980757958667588
+Val accuracy: 0.4600575145670082
+
+
+Running random forest for max_depth: 20 and n_estimators: 200
+Train accuracy: 0.9990848776023794
+Val accuracy: 0.4357456801285915
+
+
+Running random forest for max_depth: 50 and n_estimators: 100
+Train accuracy: 0.9993136582017845
+Val accuracy: 0.43058694996986135
+
+
+Running random forest for max_depth: 50 and n_estimators: 200
+Train accuracy: 0.9993136582017845
+Val accuracy: 0.417987743620655
+
+
+Best model: {'bootstrap': True, 'ccp_alpha': 0.0, 'class_weight': None, 'criterion': 'gini', 'max_depth': 50, 'max_features': 'sqrt', 'max_leaf_nodes': None, 'max_samples': None, 'min_impurity_decrease': 0.0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'monotonic_cst': None, 'n_estimators': 200, 'n_jobs': None, 'oob_score': False, 'random_state': 42, 'verbose': 0, 'warm_start': False}
+Test accuracy: 0.38461658841940527

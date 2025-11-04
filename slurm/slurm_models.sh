@@ -1,10 +1,10 @@
 #!/bin/bash
 #SBATCH --partition=HPC
-#SBATCH -o /mnt/scratch/projects/rewardMap/logs/testing_models_%j.out
+#SBATCH -o /mnt/scratch/projects/rewardMap/logs/model_individual_z_%j.out
 #SBATCH -J models
 #SBATCH -n 1
 #SBATCH --cpus-per-task=6
-#SBATCH --mem=30G
+#SBATCH --mem=64G
 
 
 PYTHON_BIN=/mnt/projects/rewardMap/STUDIES/reward_signature/.venv/bin/python
@@ -17,4 +17,4 @@ COMPUTE_FOLDER='/mnt/projects/rewardMap/STUDIES/reward_signature/scripts'
 
 # activate the env your interested in
 
-$PYTHON_BIN $COMPUTE_FOLDER/reward_system_masking_model.py
+$PYTHON_BIN $COMPUTE_FOLDER/base_model_copy.py

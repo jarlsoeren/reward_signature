@@ -199,6 +199,6 @@ def extract_features(task, out_type, out_dir):
     if not os.path.exists(output_dir):
         os.mkdir(output_dir)
 
-    for idx in range(len(participants)):
+    for idx in range(12, len(participants)):
         subject = get_subject_data(idx, db, task, participants, space_name)
         extract_betas_lss(subject, idx, output_dir, out_type)
