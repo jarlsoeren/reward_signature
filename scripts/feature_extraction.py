@@ -134,7 +134,6 @@ def extract_betas_lss(subject, id, output_dir, out_type):
     for i_trial in tqdm(range(n_trials)):
         lss_events_df, trial_condition = lss_transformer(events, i_trial)
 
-
         # Compute and collect beta maps
         lss_glm = FirstLevelModel(**glm_parameters)
         lss_glm.fit(fmri_file, lss_events_df, confounds=subject["confounds"])
@@ -174,7 +173,7 @@ def save_maps(map, dm, subject_id, trial, output_dir):
     nb.save(map, beta_file)
 
     dm_file = os.path.join(sub_dir, f"des_mat_trial-{trial:03d}.csv")
-    dm.to_csv(dm_file)
+    dm.to_csv(dm_file, index=False)
     
 
 def extract_features(task, out_type, out_dir):

@@ -1,8 +1,7 @@
 #!/bin/bash
 #SBATCH --partition=HPC
-#SBATCH -o /mnt/scratch/projects/rewardMap/logs/model_individual_z_%j.out
-#SBATCH -J models
-#SBATCH -n 1
+#SBATCH -o /mnt/scratch/projects/rewardMap/logs/final_gonogo%j.out
+#SBATCH -J final_gonogo
 #SBATCH --cpus-per-task=6
 #SBATCH --mem=64G
 
@@ -17,4 +16,4 @@ COMPUTE_FOLDER='/mnt/projects/rewardMap/STUDIES/reward_signature/scripts'
 
 # activate the env your interested in
 
-$PYTHON_BIN $COMPUTE_FOLDER/base_model_copy.py
+$PYTHON_BIN $COMPUTE_FOLDER/final_model.py

@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --partition=HPC
-#SBATCH -o /mnt/scratch/projects/rewardMap/logs/lss_%j.out
-#SBATCH -J lss
+#SBATCH -o /mnt/scratch/projects/rewardMap/logs/masking_%j.out
+#SBATCH -J masking
 #SBATCH -n 1
 #SBATCH --cpus-per-task=6
 #SBATCH --mem=30G
@@ -17,4 +17,4 @@ COMPUTE_FOLDER='/mnt/projects/rewardMap/STUDIES/reward_signature/scripts'
 
 # activate the env your interested in
 
-$PYTHON_BIN $COMPUTE_FOLDER/call_feature_extraction.py
+$PYTHON_BIN $COMPUTE_FOLDER/masking_data.py
